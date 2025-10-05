@@ -41,6 +41,7 @@ public class Deck extends CardCollection implements CardSource {
 
     /**
      * Draws the last card from this deck (the last card is removed).
+     *
      * @return The card that was drawn.
      */
     public Card draw() {
@@ -53,6 +54,7 @@ public class Deck extends CardCollection implements CardSource {
 
     /**
      * Checks if this Deck is empty.
+     *
      * @return True if this deck is empty, false if not.
      */
     public boolean isEmpty() {
@@ -70,6 +72,11 @@ public class Deck extends CardCollection implements CardSource {
     }
 
 
+    /**
+     * Sorts this Deck based according to the specified comparator object.
+     *
+     * @param comparator The {@link Comparator} usd to determine the sorting of the deck.
+     */
     public void sort(Comparator<Card> comparator) {
         aCards.sort(comparator);
     }
