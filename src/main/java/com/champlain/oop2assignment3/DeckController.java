@@ -1,10 +1,12 @@
 package com.champlain.oop2assignment3;
 
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+
 
 /**
  * Controller class for managing the deck and hand of cards in the user interface.
@@ -21,11 +23,13 @@ public class DeckController {
     @FXML
     private TextArea aDeckTextArea;
 
+
     /**
      * TextArea for displaying the current hand of cards.
      */
     @FXML
     private TextArea aHandTextArea;
+
 
     /**
      * ChoiceBox for selecting the sorting strategy for the deck.
@@ -33,11 +37,13 @@ public class DeckController {
     @FXML
     private ChoiceBox<String> aSortStrategyChoiceBox;
 
+
     /**
      * ChoiceBox for selecting the scoring strategy for the hand.
      */
     @FXML
     private ChoiceBox<String> aScoreStrategyChoiceBox;
+
 
     /**
      * Label for displaying the current score based on the selected scoring strategy.
@@ -45,15 +51,18 @@ public class DeckController {
     @FXML
     private Label aScoreLabel;
 
+
     /**
      * The deck of cards being managed by this controller.
      */
     private final Deck aDeck = new Deck();
 
+
     /**
      * The hand of cards being managed by this controller.
      */
     private final Hand aHand = new Hand();
+
 
     /**
      * Initializes the controller and sets up the UI components.
@@ -65,6 +74,7 @@ public class DeckController {
         this.aScoreStrategyChoiceBox.getItems().addAll("Simple Count", "Number Of Aces");
     }
 
+
     /**
      * Handles the event when the shuffle button is clicked.
      * Shuffles the deck and updates the displayed card collections.
@@ -74,6 +84,7 @@ public class DeckController {
         this.aDeck.shuffle();
         this.displayCardCollections();
     }
+
 
     /**
      * Handles the event when the sort button is clicked.
@@ -93,8 +104,8 @@ public class DeckController {
                     this.aDeckTextArea.setText("This does not sort by rank first yet.");
                     break;
                 case "Suit First":
-                    // TODO: Replace the following line of code.
-                    this.aDeckTextArea.setText("This does not sort by suit first yet.");
+                    this.aDeck.sort(new SuitFirstComparator());
+                    this.displayCardCollections();
                     break;
                 default:
                     this.aDeckTextArea.setText("This should not happen! You messed up.");
@@ -102,6 +113,7 @@ public class DeckController {
             }
         }
     }
+
 
     /**
      * Handles the event when the score button is clicked.
@@ -131,6 +143,7 @@ public class DeckController {
         }
     }
 
+
     /**
      * Handles the event when the draw button is clicked.
      * Draws a card from the deck and adds it to the player's hand.
@@ -146,6 +159,7 @@ public class DeckController {
         }
         this.displayCardCollections();
     }
+
 
     /**
      * Updates the text areas to display the current state of the deck and hand.
