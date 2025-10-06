@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Represents a deck of playing cards.
  * <p>
- * This class allows for creating a standard deck, shuffling it, drawing cards,
+ * This class allows for creating a single standard deck, shuffling it, drawing cards,
  * and checking if the deck is empty.
  * </p>
  */
@@ -19,10 +19,15 @@ public class Deck extends CardCollection implements CardSource {
 
 
     /**
+     * Contains the sole instance of the {@link Deck} class
+     */
+    private static Deck deckInstance;
+
+    /**
      * Constructs a new Deck containing all standard playing cards.
      * The deck is initialized with one of each rank and suit combination.
      */
-    public Deck() {
+    private Deck() {
         for (Rank currentRank : Rank.values()) {
             for (Suit currentSuit : Suit.values()) {
                 this.aCards.add(new Card(currentRank, currentSuit));
@@ -30,6 +35,17 @@ public class Deck extends CardCollection implements CardSource {
         }
     }
 
+
+    /**
+     * Gets the instance of {@link Deck} or creates one
+     * @return {@code deckInstance}
+     */
+    public static Deck getInstance() {
+        if (deckInstance == null) {
+            deckInstance = new Deck();
+        }
+        return deckInstance;
+    }
 
     /**
      * Shuffles the cards in this deck randomly.
