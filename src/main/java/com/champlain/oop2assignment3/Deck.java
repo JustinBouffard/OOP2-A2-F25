@@ -91,9 +91,9 @@ public class Deck extends CardCollection implements CardSource {
     /**
      * Sorts this Deck based according to the specified comparator object.
      *
-     * @param comparator The {@link Comparator} usd to determine the sorting of the deck.
+     * @param pComparator The {@link Comparator} usd to determine the sorting of the deck.
      */
-    public void sort(Comparator<Card> comparator) {
-        aCards.sort(comparator);
+    public void sort(Comparator<Card> pComparator) {
+        aCards.sort(pComparator);
     }
 }
