@@ -56,10 +56,14 @@ public class Card {
 
     /**
      * Checks if a {@link Card} is the same as another one
-     * @param pCard Other Card
+     * @param object Other object
      * @return {@code true} if both Cards have the same suit and rank
      */
-    public boolean equals (Card pCard) {
-        return this.aRank == pCard.aRank && this.aSuit == pCard.aSuit;
+    @Override
+    public boolean equals (Object object) {
+        if (object instanceof Card card) {
+            return this.aRank == card.aRank && this.aSuit == card.aSuit;
+        }
+        return false;
     }
 }
