@@ -21,7 +21,7 @@ public class Deck extends CardCollection implements CardSource {
     /**
      * Contains the sole instance of the {@link Deck} class
      */
-    private static Deck deckInstance;
+    private static Deck pDeckInstance;
 
     /**
      * Constructs a new Deck containing all standard playing cards.
@@ -41,10 +41,10 @@ public class Deck extends CardCollection implements CardSource {
      * @return {@code deckInstance}
      */
     public static Deck getInstance() {
-        if (deckInstance == null) {
-            deckInstance = new Deck();
+        if (pDeckInstance == null) {
+            pDeckInstance = new Deck();
         }
-        return deckInstance;
+        return pDeckInstance;
     }
 
     /**
