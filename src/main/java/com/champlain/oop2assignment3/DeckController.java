@@ -63,6 +63,16 @@ public class DeckController {
         this.displayCardCollections();
         this.aSortStrategyChoiceBox.getItems().addAll("Rank First", "Suit First");
         this.aScoreStrategyChoiceBox.getItems().addAll("Simple Count", "Number Of Aces");
+        testEqualsMethod();
+    }
+
+    /**
+     * Tests the equals method of the {@link Card} class. Should print {@code true} in the console if it works.
+     */
+    public void testEqualsMethod() {
+        Card card1 = new Card(Rank.ACE, Suit.CLUBS);
+        Card card2 = new Card(Rank.ACE, Suit.CLUBS);
+        System.out.println("Equals method test result: " + card1.equals(card2));
     }
 
     /**
