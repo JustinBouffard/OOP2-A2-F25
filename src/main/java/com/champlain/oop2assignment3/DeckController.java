@@ -63,6 +63,17 @@ public class DeckController {
         this.displayCardCollections();
         this.aSortStrategyChoiceBox.getItems().addAll("Rank First", "Suit First");
         this.aScoreStrategyChoiceBox.getItems().addAll("Simple Count", "Number Of Aces");
+        testSingleton();
+    }
+
+    /**
+     * Tests that the {@link Deck} class implements the singleton pattern properly.
+     * Should print {@code true} if that is the case.
+     */
+    public void testSingleton() {
+        Deck deck1 = Deck.getInstance();
+        Deck deck2 = Deck.getInstance();
+        System.out.println("Singleton test result: " + (deck1 == deck2));
     }
 
     /**
